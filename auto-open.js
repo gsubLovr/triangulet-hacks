@@ -21,4 +21,4 @@ setInterval(() =>
     try { t = JSON.stringify(JSON.parse(t), null, 2); } catch {}
     console.log(`[${new Date().toISOString()}] ${r.status} ${r.statusText}\n${t}\n`);
   })),
-2000);
+200);
