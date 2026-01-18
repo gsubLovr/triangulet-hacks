@@ -1,4 +1,5 @@
 const capsule = 'Hat';
+let opened = 0;
 
 setInterval(() =>
   fetch('https://tri.pengpowers.xyz/api/open', {
@@ -15,10 +16,11 @@ setInterval(() =>
             )
       ),
     },
-    body: JSON.stringify({ capsule: capsule }),
+    body: JSON.stringify({ capsule }),
   })
   .then(r => r.text().then(t => {
+    opened += 1;
     try { t = JSON.stringify(JSON.parse(t), null, 2); } catch {}
-    console.log(`[${new Date().toISOString()}] ${r.status} ${r.statusText}\n${t}\n`);
+    console.log(`[${new Date().toISOString()}] #${opened} ${r.status} ${r.statusText}\n${t}\n`);
   })),
 200);
